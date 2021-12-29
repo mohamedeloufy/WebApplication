@@ -5,8 +5,7 @@
     <parameter name="url" value="http://www.musala.com/"/>
     <test name="auto">
         <classes>
-            <class name="Tests.Test_Base"/>
-
+            <class name="Tests.Company_Test_Case"/>
         </classes>
     </test>
 

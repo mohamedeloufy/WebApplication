@@ -1,6 +1,6 @@
 package Tests;
 
-import Data.ReadProperties;
+
 import Utilities.Helper;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Link;
@@ -10,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
 
 import org.testng.ITestResult;
 import org.testng.annotations.*;
@@ -21,8 +22,6 @@ public class Test_Base {
 
     public static WebDriver driver;
 
-
-    @SuppressWarnings("deprecation")
     @BeforeSuite
     @Parameters({"browser","url"})
     @Severity(SeverityLevel.BLOCKER)
@@ -70,6 +69,7 @@ public class Test_Base {
     }
 
     @AfterSuite
+    @Severity(SeverityLevel.MINOR)
     public void closeDriver() {
         driver.quit();
 
@@ -77,32 +77,10 @@ public class Test_Base {
 
 
 
-    @Test
-    public void print()
-    {
-        System.out.println("hello");
-    }
 
-    @Test
-    public void print2()
-    {
-        System.out.println("helloWorld");
-    }
 
-    @DataProvider
-    public static Object[][] userData()
-    {
-        String firstEmail= ReadProperties.userDate.getProperty("FirstEmail");
-        String secondEmail= ReadProperties.userDate.getProperty("SecondEmail");
-        String thirdEmail= ReadProperties.userDate.getProperty("ThirdEmail");
-        String fourthEmail= ReadProperties.userDate.getProperty("FourthEmail");
-        String fifthEmail= ReadProperties.userDate.getProperty("FifthEmail");
 
-        return new Object[][]
-                {
-                        {firstEmail},{secondEmail},{thirdEmail},{fourthEmail},{fifthEmail}
-                };
-    }
+
 
 
 }

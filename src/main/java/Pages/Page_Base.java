@@ -29,13 +29,14 @@ public class Page_Base {
     // Method : write data on text box
     public static void writeData(WebElement element, String value)
     {
+        element.clear();
         element.sendKeys(value);
     }
 
     // Method : scroll to the bottom of the screen
     public void scrollToBottom()
     {
-        jes.executeScript("scrollBy(0,2500)");
+        jes.executeScript("scrollBy(0,2000)");
     }
 
     //Method : scroll to the top of the screen
