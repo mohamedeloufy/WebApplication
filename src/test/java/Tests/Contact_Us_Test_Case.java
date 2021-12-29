@@ -53,4 +53,12 @@ public class Contact_Us_Test_Case extends Test_Base {
 
 
     }
+
+    // this method to close contact us
+    @Test(dependsOnMethods = "contact_us_credentials")
+    public void close_form()
+    {
+        homepageObject=new Home_Page(driver);
+        homepageObject.close_contact_us();
+    }
 }

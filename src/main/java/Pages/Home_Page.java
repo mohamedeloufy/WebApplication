@@ -44,6 +44,9 @@ public class Home_Page extends Page_Base{
     @FindBy(className = "wpcf7-not-valid-tip")
     public WebElement errorMessage;
 
+    @FindBy(id = "fancybox-close")
+    public WebElement close_contact_us;
+
     public void EnterDataToContactUs(String name ,String email,String mobileNumber,String subject,String Message)
     {
 
@@ -70,6 +73,22 @@ public class Home_Page extends Page_Base{
         for (WebElement element:listOfElements)
         {
             if (element.getText().equalsIgnoreCase("company"))
+            {
+                clickOn(element);
+                break;
+            }
+        }
+    }
+    public void close_contact_us()
+    {
+        clickOn(close_contact_us);
+    }
+
+    public void Open_careers_page()
+    {
+        for (WebElement element:listOfElements)
+        {
+            if (element.getText().equalsIgnoreCase("careers"))
             {
                 clickOn(element);
                 break;

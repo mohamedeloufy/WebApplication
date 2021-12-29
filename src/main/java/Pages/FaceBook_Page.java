@@ -13,6 +13,6 @@ public class FaceBook_Page extends Page_Base{
     }
 
     // fe issue fel inspect bta3 el image
-    @FindBy(xpath = "//div[@id='u_0_d_/R']//div/div/div/a")
+    @FindBy(xpath = "//div[@id='entity_sidebar'] /div/div/div/div/a/div/img")
     public WebElement profilePicture;
 }

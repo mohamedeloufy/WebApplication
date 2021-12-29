@@ -29,8 +29,7 @@ public class Company_Test_Case extends Test_Base{
         Assert.assertTrue(companyPageObject.LeadersShip_Section.isDisplayed());
     }
     @Test(dependsOnMethods = "verifyLeaderShip")
-    public void openFaceBookPage()
-    {
+    public void openFaceBookPage() throws InterruptedException {
         companyPageObject=new Company_Page(driver);
         companyPageObject.OpenFaceBookTab();
         ArrayList<String> tabs_windows = new ArrayList<String> (driver.getWindowHandles());
@@ -39,6 +38,7 @@ public class Company_Test_Case extends Test_Base{
         facebookPageObject=new FaceBook_Page(driver);
         Assert.assertTrue(facebookPageObject.profilePicture.isDisplayed());
         driver.switchTo().window(tabs_windows.get(0));
+        Thread.sleep(2000);
 
 
 
