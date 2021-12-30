@@ -22,7 +22,7 @@ public class Test_Base {
 
     public static WebDriver driver;
 
-    @BeforeSuite
+    @BeforeTest
     @Parameters({"browser","url"})
     @Severity(SeverityLevel.BLOCKER)
     @Link(name = "Automation Task", url = "http://www.musala.com/")
@@ -68,7 +68,7 @@ public class Test_Base {
 
     }
 
-    @AfterSuite
+    @AfterTest
     @Severity(SeverityLevel.MINOR)
     public void closeDriver() {
         driver.quit();

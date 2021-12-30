@@ -32,7 +32,7 @@ public class Contact_Us_Test_Case extends Test_Base {
     // this Method to open_contact_us
     @Test
     public void open_contact_us_form()
-    {
+   {
         homepageObject = new Home_Page(driver);
         homepageObject.Open_contact_Us_Form();
     }
@@ -52,5 +52,14 @@ public class Contact_Us_Test_Case extends Test_Base {
         Assert.assertEquals(homepageObject.errorMessage.getText(),ReadProperties.userDate.getProperty("EmailErrorMessage"));
 
 
+
+    }
+
+    // this method to close contact us
+    @Test(dependsOnMethods = "contact_us_credentials")
+    public void close_form()
+    {
+        homepageObject=new Home_Page(driver);
+        homepageObject.close_contact_us();
     }
 }

@@ -1,9 +1,9 @@
 package Tests;
 
 import Data.ReadProperties;
-import Pages.Company_Page;
-import Pages.FaceBook_Page;
-import Pages.Home_Page;
+import Pages.*;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -14,23 +14,18 @@ public class Company_Test_Case extends Test_Base{
     Company_Page companyPageObject;
     FaceBook_Page facebookPageObject;
 
+
     @Test
-    public void VerifyCompanyPage()
-    {
+    @Severity(SeverityLevel.BLOCKER)
+    public void VerifyCompanyTest() throws InterruptedException {
         homePageObject=new Home_Page(driver);
         homePageObject.Open_company_page();
+        Thread.sleep(2000);
+        System.out.print(driver.getCurrentUrl());
         Assert.assertEquals(driver.getCurrentUrl(), ReadProperties.userDate.getProperty("CompanyUrl"));
-    }
-    @Test(dependsOnMethods = "VerifyCompanyPage")
-    public void verifyLeaderShip()
-    {
         companyPageObject=new Company_Page(driver);
         companyPageObject.viewLeaderShipSection();
         Assert.assertTrue(companyPageObject.LeadersShip_Section.isDisplayed());
-    }
-    @Test(dependsOnMethods = "verifyLeaderShip")
-    public void openFaceBookPage()
-    {
         companyPageObject=new Company_Page(driver);
         companyPageObject.OpenFaceBookTab();
         ArrayList<String> tabs_windows = new ArrayList<String> (driver.getWindowHandles());
@@ -39,10 +34,12 @@ public class Company_Test_Case extends Test_Base{
         facebookPageObject=new FaceBook_Page(driver);
         Assert.assertTrue(facebookPageObject.profilePicture.isDisplayed());
         driver.switchTo().window(tabs_windows.get(0));
+        Thread.sleep(2000);
 
 
 
     }
+
 
 
 

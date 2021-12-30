@@ -1,12 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Automation Task"  parallel="methods">
-    <parameter name="browser" value="chrome"/>
-    <parameter name="url" value="http://www.musala.com/"/>
-    <test name="auto">
+<suite name="Automation Task" >
+
+    <test name="FirstTestCase">
+        <parameter name="browser" value="chrome"/>
+        <parameter name="url" value="http://www.musala.com/"/>
+        <classes>
+            <class name="Tests.Contact_Us_Test_Case"/>
+        </classes>
+    </test>
+    <test name="SecondTestCase">
+        <parameter name="browser" value="chrome"/>
+        <parameter name="url" value="http://www.musala.com/"/>
         <classes>
             <class name="Tests.Company_Test_Case"/>
         </classes>
     </test>
+    <test name="ThirdTestCase">
+        <parameter name="browser" value="chrome"/>
+        <parameter name="url" value="http://www.musala.com/"/>
+        <classes>
+            <class name="Tests.Careers_Test_Case"/>
+        </classes>
+    </test>
+    <test name="FourthTestCase">
+        <parameter name="browser" value="chrome"/>
+        <parameter name="url" value="http://www.musala.com/"/>
+        <classes>
+            <class name="Tests.Print_Job_Information"/>
+        </classes>
+    </test>
+
+
+
+
 
 </suite>

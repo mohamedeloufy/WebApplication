@@ -35,14 +35,15 @@ public class Home_Page extends Page_Base{
     @FindBy(id = "cf-5")
     public WebElement messageTextBox;
 
-    @FindBy(className = "recaptcha-checkbox.goog-inline-block.recaptcha-checkbox-unchecked.rc-anchor-checkbox")
-    public  WebElement recaptchaCheckBox;
 
     @FindBy(css = "input.wpcf7-form-control.has-spinner.wpcf7-submit.btn-cf-submit")
     public WebElement sendButton;
 
     @FindBy(className = "wpcf7-not-valid-tip")
     public WebElement errorMessage;
+
+    @FindBy(id = "fancybox-close")
+    public WebElement close_contact_us;
 
     public void EnterDataToContactUs(String name ,String email,String mobileNumber,String subject,String Message)
     {
@@ -52,8 +53,6 @@ public class Home_Page extends Page_Base{
         writeData(mobileTextBox,mobileNumber);
         writeData(subjectTextBox,subject);
         writeData(messageTextBox,Message);
-        //we need to create javascript code to check the recapture
-        //jes.executeScript("");
         clickOn(sendButton);
     }
 
@@ -70,6 +69,23 @@ public class Home_Page extends Page_Base{
         for (WebElement element:listOfElements)
         {
             if (element.getText().equalsIgnoreCase("company"))
+            {
+                clickOn(element);
+                break;
+            }
+        }
+    }
+    public void close_contact_us()
+    {
+        clickOn(close_contact_us);
+        scrollToUP();
+    }
+
+    public void Open_careers_page()
+    {
+        for (WebElement element:listOfElements)
+        {
+            if (element.getText().equalsIgnoreCase("careers"))
             {
                 clickOn(element);
                 break;
