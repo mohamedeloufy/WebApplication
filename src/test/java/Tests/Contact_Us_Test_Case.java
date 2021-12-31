@@ -33,7 +33,7 @@ public class Contact_Us_Test_Case extends Test_Base {
     @Test
     public void open_contact_us_form()
    {
-        homepageObject = new Home_Page(driver);
+        homepageObject = new Home_Page(getDriver());
         homepageObject.Open_contact_Us_Form();
     }
 
@@ -45,7 +45,7 @@ public class Contact_Us_Test_Case extends Test_Base {
     // this test run 5 times by using parameter data provider
     @Test(dependsOnMethods = "open_contact_us_form",dataProvider = "userDataCredentials")
     public void contact_us_credentials(String name,String email,String mobile,String subject,String message) throws InterruptedException {
-        homepageObject = new Home_Page(driver);
+        homepageObject = new Home_Page(getDriver());
         homepageObject.EnterDataToContactUs(name,email,mobile,subject,message);
         Thread.sleep(5000);
         Assert.assertTrue(homepageObject.errorMessage.isDisplayed());
@@ -59,7 +59,7 @@ public class Contact_Us_Test_Case extends Test_Base {
     @Test(dependsOnMethods = "contact_us_credentials")
     public void close_form()
     {
-        homepageObject=new Home_Page(driver);
+        homepageObject=new Home_Page(getDriver());
         homepageObject.close_contact_us();
     }
 }

@@ -18,22 +18,22 @@ public class Company_Test_Case extends Test_Base{
     @Test
     @Severity(SeverityLevel.BLOCKER)
     public void VerifyCompanyTest() throws InterruptedException {
-        homePageObject=new Home_Page(driver);
+        homePageObject=new Home_Page(getDriver());
         homePageObject.Open_company_page();
         Thread.sleep(2000);
-        System.out.print(driver.getCurrentUrl());
-        Assert.assertEquals(driver.getCurrentUrl(), ReadProperties.userDate.getProperty("CompanyUrl"));
-        companyPageObject=new Company_Page(driver);
+        System.out.print(getDriver().getCurrentUrl());
+        Assert.assertEquals(getDriver().getCurrentUrl(), ReadProperties.userDate.getProperty("CompanyUrl"));
+        companyPageObject=new Company_Page(getDriver());
         companyPageObject.viewLeaderShipSection();
         Assert.assertTrue(companyPageObject.LeadersShip_Section.isDisplayed());
-        companyPageObject=new Company_Page(driver);
+        companyPageObject=new Company_Page(getDriver());
         companyPageObject.OpenFaceBookTab();
-        ArrayList<String> tabs_windows = new ArrayList<String> (driver.getWindowHandles());
-        driver.switchTo().window(tabs_windows.get(1));
-        Assert.assertEquals(driver.getCurrentUrl(),ReadProperties.userDate.getProperty("FaceBookUrl"));
-        facebookPageObject=new FaceBook_Page(driver);
+        ArrayList<String> tabs_windows = new ArrayList<String> (getDriver().getWindowHandles());
+        getDriver().switchTo().window(tabs_windows.get(1));
+        Assert.assertEquals(getDriver().getCurrentUrl(),ReadProperties.userDate.getProperty("FaceBookUrl"));
+        facebookPageObject=new FaceBook_Page(getDriver());
         Assert.assertTrue(facebookPageObject.profilePicture.isDisplayed());
-        driver.switchTo().window(tabs_windows.get(0));
+        getDriver().switchTo().window(tabs_windows.get(0));
         Thread.sleep(2000);
 
 

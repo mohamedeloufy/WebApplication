@@ -22,14 +22,14 @@ public class Careers_Test_Case extends Test_Base{
     @Severity(SeverityLevel.NORMAL)
     @Description("This test case is used to test the apply scenario ")
     public void Open_Careers_Page() throws InterruptedException {
-        homePageObject = new Home_Page(driver);
+        homePageObject = new Home_Page(getDriver());
         homePageObject.Open_careers_page();
-        careersPageObject = new Careers_Page(driver);
+        careersPageObject = new Careers_Page(getDriver());
         careersPageObject.open_check_on_careers();
-        Assert.assertEquals(driver.getCurrentUrl(), ReadProperties.userDate.getProperty("JoinUsUrl"));
+        Assert.assertEquals(getDriver().getCurrentUrl(), ReadProperties.userDate.getProperty("JoinUsUrl"));
         careersPageObject.select_Location(ReadProperties.userDate.getProperty("LocationName"));
         careersPageObject.Select_Job_By_Name(ReadProperties.userDate.getProperty("JobName"));
-        jobPageObject=new Job_Page(driver);
+        jobPageObject=new Job_Page(getDriver());
         jobPageObject.check_main_four_sections();
         Assert.assertEquals(jobPageObject.mainSections.size(),4);
         Assert.assertTrue(jobPageObject.apply_Button.isDisplayed());

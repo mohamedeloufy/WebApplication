@@ -17,11 +17,11 @@ public class Print_Job_Information extends Test_Base{
     public void Open_Careers_Page()  {
 
 
-        homePageObject = new Home_Page(driver);
+        homePageObject = new Home_Page(getDriver());
         homePageObject.Open_careers_page();
-        careersPageObject = new Careers_Page(driver);
+        careersPageObject = new Careers_Page(getDriver());
         careersPageObject.open_check_on_careers();
-        Assert.assertEquals(driver.getCurrentUrl(), ReadProperties.userDate.getProperty("JoinUsUrl"));
+        Assert.assertEquals(getDriver().getCurrentUrl(), ReadProperties.userDate.getProperty("JoinUsUrl"));
         careersPageObject.select_Location(ReadProperties.userDate.getProperty("LocationNameSofia"));
         careersPageObject.jobsInCity();
         careersPageObject.select_Location(ReadProperties.userDate.getProperty("LocationNameSkopje"));
